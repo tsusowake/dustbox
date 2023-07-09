@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package hoge;
+
+service Hoge {
+    rpc Hoge (HogeRequest) returns (HogeReply);
+    rpc Fuga (FugaRequest) returns (FugaReply);
+}
+
+message HogeRequest {
+    string name = 1;
+}
+message HogeReply {
+    string message = 1;
+}
+
+message FugaRequest {
+    string name = 1;
+}
+message FugaReply {
+    string message = 1;
+}
