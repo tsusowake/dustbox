@@ -1,6 +1,6 @@
 import { Express, Router } from 'express'
-import HomeAPI from './home.ts'
-import ImageAPI from './image.ts'
+import HomeAPI from './home'
+import ImageAPI from './image'
 
 export interface APISetUpper {
   setup(): void

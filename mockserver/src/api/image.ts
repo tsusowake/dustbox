@@ -1,7 +1,8 @@
 import { Router } from 'express'
 import { APISetUpper } from '.'
-import data from '../mock/image.json' assert { type: 'json' }
-import { randomWait } from '../util/random_wait.ts'
+import data from '../mock/image.json'
+import { randomWait } from '../util/random_wait'
+import { image } from './gen/protobuf_generated'
 
 export default class ImageAPI implements APISetUpper {
   private router: Router
@@ -12,8 +13,8 @@ export default class ImageAPI implements APISetUpper {
 
   setup(): void {
     this.router.get('/images', async (req, res) => {
-      const ret = await images()
-      res.send(ret)
+      const bunchoes = await images()
+      res.send(image.ListResponse.encode({ images: bunchoes }))
     })
   }
 }

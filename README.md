@@ -14,3 +14,15 @@ npm run dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) 
+
+## Protocol Buffers
+
+app
+```bash
+make protogen
+```
+
+mockserver...;;
+```bash
+make mockprotogen
+```

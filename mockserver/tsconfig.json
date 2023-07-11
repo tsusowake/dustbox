@@ -1,12 +1,12 @@
 {
   "compilerOptions": {
     "allowSyntheticDefaultImports": true,
-    "allowImportingTsExtensions": true,
+    "allowJs": true,
     "noEmit": true,
-    "lib": ["ESNext"],
-    "module": "ESNext",
-    "moduleResolution": "node",
     "target": "ESNext",
+    "lib": ["ESNext"],
+    "module": "CommonJS",
+    "moduleResolution": "node",
     "outDir": "./dist",
     "strict": true,
     "skipLibCheck": true,
@@ -15,8 +15,7 @@
     "resolveJsonModule": true,
     "paths": {
       "@/*": ["./src/*"]
-    },
-    "baseUrl": "./src"
+    }
   },
   "include": ["src/**/*"],
   "exclude": ["node_modules"],
