@@ -1,6 +1,7 @@
+// 
 import express from 'express'
 import bodyParser from 'body-parser'
-import { setupAPI } from './api/index.js'
+import { setupAPI } from './api/index'
 
 const app = express()
 app.set('port', process.env.PORT || 4000)

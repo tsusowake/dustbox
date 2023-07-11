@@ -7,7 +7,7 @@ TS_OUTPUT=src/api/gen/protobuf_generated.d.ts
 # see https://github.com/protobufjs/protobuf.js/blob/master/cli/README.md#pbjs-for-javascript
 CMD_PBJS=npx pbjs \
 	-t static-module \
-	-w commonjs \
+	-w es6 \
 	-l eslint-disable \
 	--es6 \
 	--no-create \
@@ -30,3 +30,8 @@ clean:
 protogen: clean
 	$(CMD_PBJS) && $(CMD_PBTS)
 
+MOCK_GEN_DIR=mockserver/src/api/gen
+.PHONY: mockprotogen
+mockprotogen: protogen
+	rm -rf $(MOCK_GEN_DIR)
+	cp -r ./src/api/gen $(MOCK_GEN_DIR)

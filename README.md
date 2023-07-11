@@ -1,7 +1,28 @@
 ## Getting Started
 
 ```bash
+npm i
+```
+
+```bash
+cd mockserver
+npm run mock:server
+```
+
+```bash
 npm run dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) 
+
+## Protocol Buffers
+
+app
+```bash
+make protogen
+```
+
+mockserver...;;
+```bash
+make mockprotogen
+```
