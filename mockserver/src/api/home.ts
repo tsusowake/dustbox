@@ -1,7 +1,7 @@
 import { Router } from 'express'
-import { SetUpper } from '.'
+import { APISetUpper } from '.'
 
-export default class HomeAPI implements SetUpper {
+export default class HomeAPI implements APISetUpper {
   private router: Router
 
   constructor(r: Router) {
