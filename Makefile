@@ -10,7 +10,6 @@ CMD_PBJS=npx pbjs \
 	-w es6 \
 	-l eslint-disable \
 	--es6 \
-	--no-create \
 	--no-verify \
 	--no-delimited \
 	--no-service \

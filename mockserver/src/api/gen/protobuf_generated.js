@@ -49,6 +49,18 @@ export const helloworld = $root.helloworld = (() => {
         HelloRequest.prototype.name = "";
 
         /**
+         * Creates a new HelloRequest instance using the specified properties.
+         * @function create
+         * @memberof helloworld.HelloRequest
+         * @static
+         * @param {helloworld.IHelloRequest=} [properties] Properties to set
+         * @returns {helloworld.HelloRequest} HelloRequest instance
+         */
+        HelloRequest.create = function create(properties) {
+            return new HelloRequest(properties);
+        };
+
+        /**
          * Encodes the specified HelloRequest message. Does not implicitly {@link helloworld.HelloRequest.verify|verify} messages.
          * @function encode
          * @memberof helloworld.HelloRequest
@@ -153,6 +165,18 @@ export const helloworld = $root.helloworld = (() => {
          * @instance
          */
         HelloReply.prototype.repliedAt = null;
+
+        /**
+         * Creates a new HelloReply instance using the specified properties.
+         * @function create
+         * @memberof helloworld.HelloReply
+         * @static
+         * @param {helloworld.IHelloReply=} [properties] Properties to set
+         * @returns {helloworld.HelloReply} HelloReply instance
+         */
+        HelloReply.create = function create(properties) {
+            return new HelloReply(properties);
+        };
 
         /**
          * Encodes the specified HelloReply message. Does not implicitly {@link helloworld.HelloReply.verify|verify} messages.
@@ -288,6 +312,18 @@ export const google = $root.google = (() => {
             Timestamp.prototype.nanos = 0;
 
             /**
+             * Creates a new Timestamp instance using the specified properties.
+             * @function create
+             * @memberof google.protobuf.Timestamp
+             * @static
+             * @param {google.protobuf.ITimestamp=} [properties] Properties to set
+             * @returns {google.protobuf.Timestamp} Timestamp instance
+             */
+            Timestamp.create = function create(properties) {
+                return new Timestamp(properties);
+            };
+
+            /**
              * Encodes the specified Timestamp message. Does not implicitly {@link google.protobuf.Timestamp.verify|verify} messages.
              * @function encode
              * @memberof google.protobuf.Timestamp
@@ -406,6 +442,18 @@ export const hoge = $root.hoge = (() => {
         HogeRequest.prototype.name = "";
 
         /**
+         * Creates a new HogeRequest instance using the specified properties.
+         * @function create
+         * @memberof hoge.HogeRequest
+         * @static
+         * @param {hoge.IHogeRequest=} [properties] Properties to set
+         * @returns {hoge.HogeRequest} HogeRequest instance
+         */
+        HogeRequest.create = function create(properties) {
+            return new HogeRequest(properties);
+        };
+
+        /**
          * Encodes the specified HogeRequest message. Does not implicitly {@link hoge.HogeRequest.verify|verify} messages.
          * @function encode
          * @memberof hoge.HogeRequest
@@ -501,6 +549,18 @@ export const hoge = $root.hoge = (() => {
          * @instance
          */
         HogeReply.prototype.message = "";
+
+        /**
+         * Creates a new HogeReply instance using the specified properties.
+         * @function create
+         * @memberof hoge.HogeReply
+         * @static
+         * @param {hoge.IHogeReply=} [properties] Properties to set
+         * @returns {hoge.HogeReply} HogeReply instance
+         */
+        HogeReply.create = function create(properties) {
+            return new HogeReply(properties);
+        };
 
         /**
          * Encodes the specified HogeReply message. Does not implicitly {@link hoge.HogeReply.verify|verify} messages.
@@ -600,6 +660,18 @@ export const hoge = $root.hoge = (() => {
         FugaRequest.prototype.name = "";
 
         /**
+         * Creates a new FugaRequest instance using the specified properties.
+         * @function create
+         * @memberof hoge.FugaRequest
+         * @static
+         * @param {hoge.IFugaRequest=} [properties] Properties to set
+         * @returns {hoge.FugaRequest} FugaRequest instance
+         */
+        FugaRequest.create = function create(properties) {
+            return new FugaRequest(properties);
+        };
+
+        /**
          * Encodes the specified FugaRequest message. Does not implicitly {@link hoge.FugaRequest.verify|verify} messages.
          * @function encode
          * @memberof hoge.FugaRequest
@@ -695,6 +767,18 @@ export const hoge = $root.hoge = (() => {
          * @instance
          */
         FugaReply.prototype.message = "";
+
+        /**
+         * Creates a new FugaReply instance using the specified properties.
+         * @function create
+         * @memberof hoge.FugaReply
+         * @static
+         * @param {hoge.IFugaReply=} [properties] Properties to set
+         * @returns {hoge.FugaReply} FugaReply instance
+         */
+        FugaReply.create = function create(properties) {
+            return new FugaReply(properties);
+        };
 
         /**
          * Encodes the specified FugaReply message. Does not implicitly {@link hoge.FugaReply.verify|verify} messages.
@@ -797,6 +881,18 @@ export const image = $root.image = (() => {
         }
 
         /**
+         * Creates a new ListRequest instance using the specified properties.
+         * @function create
+         * @memberof image.ListRequest
+         * @static
+         * @param {image.IListRequest=} [properties] Properties to set
+         * @returns {image.ListRequest} ListRequest instance
+         */
+        ListRequest.create = function create(properties) {
+            return new ListRequest(properties);
+        };
+
+        /**
          * Encodes the specified ListRequest message. Does not implicitly {@link image.ListRequest.verify|verify} messages.
          * @function encode
          * @memberof image.ListRequest
@@ -887,6 +983,18 @@ export const image = $root.image = (() => {
          * @instance
          */
         ListResponse.prototype.images = $util.emptyArray;
+
+        /**
+         * Creates a new ListResponse instance using the specified properties.
+         * @function create
+         * @memberof image.ListResponse
+         * @static
+         * @param {image.IListResponse=} [properties] Properties to set
+         * @returns {image.ListResponse} ListResponse instance
+         */
+        ListResponse.create = function create(properties) {
+            return new ListResponse(properties);
+        };
 
         /**
          * Encodes the specified ListResponse message. Does not implicitly {@link image.ListResponse.verify|verify} messages.
@@ -996,6 +1104,18 @@ export const image = $root.image = (() => {
          * @instance
          */
         Image.prototype.alt = "";
+
+        /**
+         * Creates a new Image instance using the specified properties.
+         * @function create
+         * @memberof image.Image
+         * @static
+         * @param {image.IImage=} [properties] Properties to set
+         * @returns {image.Image} Image instance
+         */
+        Image.create = function create(properties) {
+            return new Image(properties);
+        };
 
         /**
          * Encodes the specified Image message. Does not implicitly {@link image.Image.verify|verify} messages.
