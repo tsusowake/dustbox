@@ -1,4 +1,4 @@
-"use client"
+'use client'
 
 import styles from './page.module.scss'
 
@@ -10,6 +10,8 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import { Pagination, Navigation } from 'swiper/modules'
 import NextImage from 'next/image'
 import { useRef } from 'react'
+import useSWR, { Fetcher } from 'swr'
+import { fetchImages } from '@/api/image'
 
 const sizes = [
   '(max-width: 600px) 150px',
@@ -20,14 +22,21 @@ const sizes = [
 ].join(',')
 
 export default function Home() {
-  const slideItems = []
-  for (let i = 1; i <= 10; i++) {
-    slideItems.push({ src: `/img/buncho.${i}.jpg`, alt: `buncho.${i}.jpg`, })
-  }
+  const { data, error, isLoading } = useSWR('/images', fetchImages)
 
   const pagination = useRef<HTMLDivElement>(null)
   const prev = useRef<HTMLDivElement>(null)
   const next = useRef<HTMLDivElement>(null)
+
+  if (isLoading) {
+    return <>Loading...</>
+  }
+  if (error) {
+    return <div>Error: {error}</div>
+  }
+  if (!data) {
+    return <div>data is empty</div>
+  }
 
   return (
     <main className={styles.main}>
@@ -43,17 +52,14 @@ export default function Home() {
               el: pagination.current,
             }}
             navigation={{
-              nextEl: ".swiper-button-next",
-              prevEl: ".swiper-button-prev",
+              nextEl: '.swiper-button-next',
+              prevEl: '.swiper-button-prev',
             }}
-            effect='flip'
+            effect="flip"
           >
-            {slideItems.map((item) => (
-              <SwiperSlide
-                className={styles.slide}
-                key={item.src}
-              >
-                <NextImage src={item.src} alt={item.alt} fill sizes={sizes} />
+            {data.images.map((item) => (
+              <SwiperSlide className={styles.slide} key={item.src}>
+                <NextImage src={item.src!} alt={item.alt!} fill sizes={sizes} />
               </SwiperSlide>
             ))}
           </Swiper>

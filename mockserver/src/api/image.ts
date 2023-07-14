@@ -13,18 +13,15 @@ export default class ImageAPI implements APISetUpper {
 
   setup(): void {
     this.router.get('/images', async (req, res) => {
-      const bunchoes = await images()
-      res.send(image.ListResponse.encode({ images: bunchoes }))
+      await randomWait(3)
+
+      res.setHeader('Content-Type', 'application/octet-stream')
+      res.send(Buffer.from(images()))
     })
   }
 }
 
-export type BunchoImage = {
-  src: string
-  alt: string
-}
-
-async function images(): Promise<BunchoImage[]> {
-  await randomWait(3)
-  return data.images
+function images(): Uint8Array {
+  const r = image.ListResponse.create({ images: data.images })
+  return image.ListResponse.encode(r).finish()
 }

@@ -23,6 +23,13 @@ export namespace helloworld {
         public name: string;
 
         /**
+         * Creates a new HelloRequest instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns HelloRequest instance
+         */
+        public static create(properties?: helloworld.IHelloRequest): helloworld.HelloRequest;
+
+        /**
          * Encodes the specified HelloRequest message. Does not implicitly {@link helloworld.HelloRequest.verify|verify} messages.
          * @param message HelloRequest message or plain object to encode
          * @param [writer] Writer to encode to
@@ -72,6 +79,13 @@ export namespace helloworld {
 
         /** HelloReply repliedAt. */
         public repliedAt?: (google.protobuf.ITimestamp|null);
+
+        /**
+         * Creates a new HelloReply instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns HelloReply instance
+         */
+        public static create(properties?: helloworld.IHelloReply): helloworld.HelloReply;
 
         /**
          * Encodes the specified HelloReply message. Does not implicitly {@link helloworld.HelloReply.verify|verify} messages.
@@ -132,6 +146,13 @@ export namespace google {
             public nanos: number;
 
             /**
+             * Creates a new Timestamp instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns Timestamp instance
+             */
+            public static create(properties?: google.protobuf.ITimestamp): google.protobuf.Timestamp;
+
+            /**
              * Encodes the specified Timestamp message. Does not implicitly {@link google.protobuf.Timestamp.verify|verify} messages.
              * @param message Timestamp message or plain object to encode
              * @param [writer] Writer to encode to
@@ -182,6 +203,13 @@ export namespace hoge {
         public name: string;
 
         /**
+         * Creates a new HogeRequest instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns HogeRequest instance
+         */
+        public static create(properties?: hoge.IHogeRequest): hoge.HogeRequest;
+
+        /**
          * Encodes the specified HogeRequest message. Does not implicitly {@link hoge.HogeRequest.verify|verify} messages.
          * @param message HogeRequest message or plain object to encode
          * @param [writer] Writer to encode to
@@ -225,6 +253,13 @@ export namespace hoge {
 
         /** HogeReply message. */
         public message: string;
+
+        /**
+         * Creates a new HogeReply instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns HogeReply instance
+         */
+        public static create(properties?: hoge.IHogeReply): hoge.HogeReply;
 
         /**
          * Encodes the specified HogeReply message. Does not implicitly {@link hoge.HogeReply.verify|verify} messages.
@@ -272,6 +307,13 @@ export namespace hoge {
         public name: string;
 
         /**
+         * Creates a new FugaRequest instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns FugaRequest instance
+         */
+        public static create(properties?: hoge.IFugaRequest): hoge.FugaRequest;
+
+        /**
          * Encodes the specified FugaRequest message. Does not implicitly {@link hoge.FugaRequest.verify|verify} messages.
          * @param message FugaRequest message or plain object to encode
          * @param [writer] Writer to encode to
@@ -317,6 +359,13 @@ export namespace hoge {
         public message: string;
 
         /**
+         * Creates a new FugaReply instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns FugaReply instance
+         */
+        public static create(properties?: hoge.IFugaReply): hoge.FugaReply;
+
+        /**
          * Encodes the specified FugaReply message. Does not implicitly {@link hoge.FugaReply.verify|verify} messages.
          * @param message FugaReply message or plain object to encode
          * @param [writer] Writer to encode to
@@ -358,6 +407,13 @@ export namespace image {
          * @param [properties] Properties to set
          */
         constructor(properties?: image.IListRequest);
+
+        /**
+         * Creates a new ListRequest instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns ListRequest instance
+         */
+        public static create(properties?: image.IListRequest): image.ListRequest;
 
         /**
          * Encodes the specified ListRequest message. Does not implicitly {@link image.ListRequest.verify|verify} messages.
@@ -403,6 +459,13 @@ export namespace image {
 
         /** ListResponse images. */
         public images: image.IImage[];
+
+        /**
+         * Creates a new ListResponse instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns ListResponse instance
+         */
+        public static create(properties?: image.IListResponse): image.ListResponse;
 
         /**
          * Encodes the specified ListResponse message. Does not implicitly {@link image.ListResponse.verify|verify} messages.
@@ -454,6 +517,13 @@ export namespace image {
 
         /** Image alt. */
         public alt: string;
+
+        /**
+         * Creates a new Image instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns Image instance
+         */
+        public static create(properties?: image.IImage): image.Image;
 
         /**
          * Encodes the specified Image message. Does not implicitly {@link image.Image.verify|verify} messages.
