@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package homecontent;
+
+message HomeContentRequest {}
+message HomeContentResponse {
+    repeated ContentRow content_rows = 1;
+}
+message ContentRow {
+    string row_header = 1;
+    ContentType content_type = 2;
+    repeated Content contents = 3;
+}
+enum ContentType {
+    CONTENT_TYPE_VIDEO = 1;
+    CONTENT_TYPE_ARTICLE = 2;
+}
+message Content {
+    string title = 1;
+    string thumbnail = 2;
+}

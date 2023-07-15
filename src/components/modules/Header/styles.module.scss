@@ -1,0 +1,28 @@
+.header {
+  position: sticky;
+  top: 0;
+  left: 0;
+  height: auto;
+  min-height: 70px;
+  z-index: 1;
+
+  .headerContainer {
+    position: relative;
+    z-index: 1;
+    background-color: rgb(20, 20, 20);
+
+    .mainHeader {
+      display: flex;
+      padding: 0 4%;
+      position: relative;
+
+      .headerLogo {
+        cursor: pointer;
+        display: inline-block;
+        margin-right: 5px;
+        text-decoration: none;
+        vertical-align: middle;
+      }
+    }
+  }
+}

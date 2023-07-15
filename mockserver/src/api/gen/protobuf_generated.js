@@ -848,6 +848,506 @@ export const hoge = $root.hoge = (() => {
     return hoge;
 })();
 
+export const homecontent = $root.homecontent = (() => {
+
+    /**
+     * Namespace homecontent.
+     * @exports homecontent
+     * @namespace
+     */
+    const homecontent = {};
+
+    homecontent.HomeContentRequest = (function() {
+
+        /**
+         * Properties of a HomeContentRequest.
+         * @memberof homecontent
+         * @interface IHomeContentRequest
+         */
+
+        /**
+         * Constructs a new HomeContentRequest.
+         * @memberof homecontent
+         * @classdesc Represents a HomeContentRequest.
+         * @implements IHomeContentRequest
+         * @constructor
+         * @param {homecontent.IHomeContentRequest=} [properties] Properties to set
+         */
+        function HomeContentRequest(properties) {
+            if (properties)
+                for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+
+        /**
+         * Creates a new HomeContentRequest instance using the specified properties.
+         * @function create
+         * @memberof homecontent.HomeContentRequest
+         * @static
+         * @param {homecontent.IHomeContentRequest=} [properties] Properties to set
+         * @returns {homecontent.HomeContentRequest} HomeContentRequest instance
+         */
+        HomeContentRequest.create = function create(properties) {
+            return new HomeContentRequest(properties);
+        };
+
+        /**
+         * Encodes the specified HomeContentRequest message. Does not implicitly {@link homecontent.HomeContentRequest.verify|verify} messages.
+         * @function encode
+         * @memberof homecontent.HomeContentRequest
+         * @static
+         * @param {homecontent.IHomeContentRequest} message HomeContentRequest message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        HomeContentRequest.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            return writer;
+        };
+
+        /**
+         * Decodes a HomeContentRequest message from the specified reader or buffer.
+         * @function decode
+         * @memberof homecontent.HomeContentRequest
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {homecontent.HomeContentRequest} HomeContentRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        HomeContentRequest.decode = function decode(reader, length) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            let end = length === undefined ? reader.len : reader.pos + length, message = new $root.homecontent.HomeContentRequest();
+            while (reader.pos < end) {
+                let tag = reader.uint32();
+                switch (tag >>> 3) {
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+
+        /**
+         * Gets the default type url for HomeContentRequest
+         * @function getTypeUrl
+         * @memberof homecontent.HomeContentRequest
+         * @static
+         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+         * @returns {string} The default type url
+         */
+        HomeContentRequest.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+            if (typeUrlPrefix === undefined) {
+                typeUrlPrefix = "type.googleapis.com";
+            }
+            return typeUrlPrefix + "/homecontent.HomeContentRequest";
+        };
+
+        return HomeContentRequest;
+    })();
+
+    homecontent.HomeContentResponse = (function() {
+
+        /**
+         * Properties of a HomeContentResponse.
+         * @memberof homecontent
+         * @interface IHomeContentResponse
+         * @property {Array.<homecontent.IContentRow>|null} [contentRows] HomeContentResponse contentRows
+         */
+
+        /**
+         * Constructs a new HomeContentResponse.
+         * @memberof homecontent
+         * @classdesc Represents a HomeContentResponse.
+         * @implements IHomeContentResponse
+         * @constructor
+         * @param {homecontent.IHomeContentResponse=} [properties] Properties to set
+         */
+        function HomeContentResponse(properties) {
+            this.contentRows = [];
+            if (properties)
+                for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+
+        /**
+         * HomeContentResponse contentRows.
+         * @member {Array.<homecontent.IContentRow>} contentRows
+         * @memberof homecontent.HomeContentResponse
+         * @instance
+         */
+        HomeContentResponse.prototype.contentRows = $util.emptyArray;
+
+        /**
+         * Creates a new HomeContentResponse instance using the specified properties.
+         * @function create
+         * @memberof homecontent.HomeContentResponse
+         * @static
+         * @param {homecontent.IHomeContentResponse=} [properties] Properties to set
+         * @returns {homecontent.HomeContentResponse} HomeContentResponse instance
+         */
+        HomeContentResponse.create = function create(properties) {
+            return new HomeContentResponse(properties);
+        };
+
+        /**
+         * Encodes the specified HomeContentResponse message. Does not implicitly {@link homecontent.HomeContentResponse.verify|verify} messages.
+         * @function encode
+         * @memberof homecontent.HomeContentResponse
+         * @static
+         * @param {homecontent.IHomeContentResponse} message HomeContentResponse message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        HomeContentResponse.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            if (message.contentRows != null && message.contentRows.length)
+                for (let i = 0; i < message.contentRows.length; ++i)
+                    $root.homecontent.ContentRow.encode(message.contentRows[i], writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
+            return writer;
+        };
+
+        /**
+         * Decodes a HomeContentResponse message from the specified reader or buffer.
+         * @function decode
+         * @memberof homecontent.HomeContentResponse
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {homecontent.HomeContentResponse} HomeContentResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        HomeContentResponse.decode = function decode(reader, length) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            let end = length === undefined ? reader.len : reader.pos + length, message = new $root.homecontent.HomeContentResponse();
+            while (reader.pos < end) {
+                let tag = reader.uint32();
+                switch (tag >>> 3) {
+                case 1: {
+                        if (!(message.contentRows && message.contentRows.length))
+                            message.contentRows = [];
+                        message.contentRows.push($root.homecontent.ContentRow.decode(reader, reader.uint32()));
+                        break;
+                    }
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+
+        /**
+         * Gets the default type url for HomeContentResponse
+         * @function getTypeUrl
+         * @memberof homecontent.HomeContentResponse
+         * @static
+         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+         * @returns {string} The default type url
+         */
+        HomeContentResponse.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+            if (typeUrlPrefix === undefined) {
+                typeUrlPrefix = "type.googleapis.com";
+            }
+            return typeUrlPrefix + "/homecontent.HomeContentResponse";
+        };
+
+        return HomeContentResponse;
+    })();
+
+    homecontent.ContentRow = (function() {
+
+        /**
+         * Properties of a ContentRow.
+         * @memberof homecontent
+         * @interface IContentRow
+         * @property {string|null} [rowHeader] ContentRow rowHeader
+         * @property {homecontent.ContentType|null} [contentType] ContentRow contentType
+         * @property {Array.<homecontent.IContent>|null} [contents] ContentRow contents
+         */
+
+        /**
+         * Constructs a new ContentRow.
+         * @memberof homecontent
+         * @classdesc Represents a ContentRow.
+         * @implements IContentRow
+         * @constructor
+         * @param {homecontent.IContentRow=} [properties] Properties to set
+         */
+        function ContentRow(properties) {
+            this.contents = [];
+            if (properties)
+                for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+
+        /**
+         * ContentRow rowHeader.
+         * @member {string} rowHeader
+         * @memberof homecontent.ContentRow
+         * @instance
+         */
+        ContentRow.prototype.rowHeader = "";
+
+        /**
+         * ContentRow contentType.
+         * @member {homecontent.ContentType} contentType
+         * @memberof homecontent.ContentRow
+         * @instance
+         */
+        ContentRow.prototype.contentType = 1;
+
+        /**
+         * ContentRow contents.
+         * @member {Array.<homecontent.IContent>} contents
+         * @memberof homecontent.ContentRow
+         * @instance
+         */
+        ContentRow.prototype.contents = $util.emptyArray;
+
+        /**
+         * Creates a new ContentRow instance using the specified properties.
+         * @function create
+         * @memberof homecontent.ContentRow
+         * @static
+         * @param {homecontent.IContentRow=} [properties] Properties to set
+         * @returns {homecontent.ContentRow} ContentRow instance
+         */
+        ContentRow.create = function create(properties) {
+            return new ContentRow(properties);
+        };
+
+        /**
+         * Encodes the specified ContentRow message. Does not implicitly {@link homecontent.ContentRow.verify|verify} messages.
+         * @function encode
+         * @memberof homecontent.ContentRow
+         * @static
+         * @param {homecontent.IContentRow} message ContentRow message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        ContentRow.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            if (message.rowHeader != null && Object.hasOwnProperty.call(message, "rowHeader"))
+                writer.uint32(/* id 1, wireType 2 =*/10).string(message.rowHeader);
+            if (message.contentType != null && Object.hasOwnProperty.call(message, "contentType"))
+                writer.uint32(/* id 2, wireType 0 =*/16).int32(message.contentType);
+            if (message.contents != null && message.contents.length)
+                for (let i = 0; i < message.contents.length; ++i)
+                    $root.homecontent.Content.encode(message.contents[i], writer.uint32(/* id 3, wireType 2 =*/26).fork()).ldelim();
+            return writer;
+        };
+
+        /**
+         * Decodes a ContentRow message from the specified reader or buffer.
+         * @function decode
+         * @memberof homecontent.ContentRow
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {homecontent.ContentRow} ContentRow
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        ContentRow.decode = function decode(reader, length) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            let end = length === undefined ? reader.len : reader.pos + length, message = new $root.homecontent.ContentRow();
+            while (reader.pos < end) {
+                let tag = reader.uint32();
+                switch (tag >>> 3) {
+                case 1: {
+                        message.rowHeader = reader.string();
+                        break;
+                    }
+                case 2: {
+                        message.contentType = reader.int32();
+                        break;
+                    }
+                case 3: {
+                        if (!(message.contents && message.contents.length))
+                            message.contents = [];
+                        message.contents.push($root.homecontent.Content.decode(reader, reader.uint32()));
+                        break;
+                    }
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+
+        /**
+         * Gets the default type url for ContentRow
+         * @function getTypeUrl
+         * @memberof homecontent.ContentRow
+         * @static
+         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+         * @returns {string} The default type url
+         */
+        ContentRow.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+            if (typeUrlPrefix === undefined) {
+                typeUrlPrefix = "type.googleapis.com";
+            }
+            return typeUrlPrefix + "/homecontent.ContentRow";
+        };
+
+        return ContentRow;
+    })();
+
+    /**
+     * ContentType enum.
+     * @name homecontent.ContentType
+     * @enum {number}
+     * @property {number} CONTENT_TYPE_VIDEO=1 CONTENT_TYPE_VIDEO value
+     * @property {number} CONTENT_TYPE_ARTICLE=2 CONTENT_TYPE_ARTICLE value
+     */
+    homecontent.ContentType = (function() {
+        const valuesById = {}, values = Object.create(valuesById);
+        values[valuesById[1] = "CONTENT_TYPE_VIDEO"] = 1;
+        values[valuesById[2] = "CONTENT_TYPE_ARTICLE"] = 2;
+        return values;
+    })();
+
+    homecontent.Content = (function() {
+
+        /**
+         * Properties of a Content.
+         * @memberof homecontent
+         * @interface IContent
+         * @property {string|null} [title] Content title
+         * @property {string|null} [thumbnail] Content thumbnail
+         */
+
+        /**
+         * Constructs a new Content.
+         * @memberof homecontent
+         * @classdesc Represents a Content.
+         * @implements IContent
+         * @constructor
+         * @param {homecontent.IContent=} [properties] Properties to set
+         */
+        function Content(properties) {
+            if (properties)
+                for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+
+        /**
+         * Content title.
+         * @member {string} title
+         * @memberof homecontent.Content
+         * @instance
+         */
+        Content.prototype.title = "";
+
+        /**
+         * Content thumbnail.
+         * @member {string} thumbnail
+         * @memberof homecontent.Content
+         * @instance
+         */
+        Content.prototype.thumbnail = "";
+
+        /**
+         * Creates a new Content instance using the specified properties.
+         * @function create
+         * @memberof homecontent.Content
+         * @static
+         * @param {homecontent.IContent=} [properties] Properties to set
+         * @returns {homecontent.Content} Content instance
+         */
+        Content.create = function create(properties) {
+            return new Content(properties);
+        };
+
+        /**
+         * Encodes the specified Content message. Does not implicitly {@link homecontent.Content.verify|verify} messages.
+         * @function encode
+         * @memberof homecontent.Content
+         * @static
+         * @param {homecontent.IContent} message Content message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        Content.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            if (message.title != null && Object.hasOwnProperty.call(message, "title"))
+                writer.uint32(/* id 1, wireType 2 =*/10).string(message.title);
+            if (message.thumbnail != null && Object.hasOwnProperty.call(message, "thumbnail"))
+                writer.uint32(/* id 2, wireType 2 =*/18).string(message.thumbnail);
+            return writer;
+        };
+
+        /**
+         * Decodes a Content message from the specified reader or buffer.
+         * @function decode
+         * @memberof homecontent.Content
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {homecontent.Content} Content
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        Content.decode = function decode(reader, length) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            let end = length === undefined ? reader.len : reader.pos + length, message = new $root.homecontent.Content();
+            while (reader.pos < end) {
+                let tag = reader.uint32();
+                switch (tag >>> 3) {
+                case 1: {
+                        message.title = reader.string();
+                        break;
+                    }
+                case 2: {
+                        message.thumbnail = reader.string();
+                        break;
+                    }
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+
+        /**
+         * Gets the default type url for Content
+         * @function getTypeUrl
+         * @memberof homecontent.Content
+         * @static
+         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+         * @returns {string} The default type url
+         */
+        Content.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+            if (typeUrlPrefix === undefined) {
+                typeUrlPrefix = "type.googleapis.com";
+            }
+            return typeUrlPrefix + "/homecontent.Content";
+        };
+
+        return Content;
+    })();
+
+    return homecontent;
+})();
+
 export const image = $root.image = (() => {
 
     /**

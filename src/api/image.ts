@@ -6,13 +6,10 @@ export const fetchImages: Fetcher<image.ListResponse, string> = async (id) => {
     credentials: 'include',
     method: 'GET',
   })
-  console.log('Response.1: ', res)
   if (!res.ok) {
     throw new Error('NetworkError')
   }
   const data = await res.arrayBuffer()
-  console.log('Response.2: ', data)
   const r = image.ListResponse.decode(new Uint8Array(data))
-  console.log('Response.2.r: ', r)
   return r
 }

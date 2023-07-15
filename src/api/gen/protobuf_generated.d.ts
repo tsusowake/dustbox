@@ -392,6 +392,236 @@ export namespace hoge {
     }
 }
 
+/** Namespace homecontent. */
+export namespace homecontent {
+
+    /** Properties of a HomeContentRequest. */
+    interface IHomeContentRequest {
+    }
+
+    /** Represents a HomeContentRequest. */
+    class HomeContentRequest implements IHomeContentRequest {
+
+        /**
+         * Constructs a new HomeContentRequest.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: homecontent.IHomeContentRequest);
+
+        /**
+         * Creates a new HomeContentRequest instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns HomeContentRequest instance
+         */
+        public static create(properties?: homecontent.IHomeContentRequest): homecontent.HomeContentRequest;
+
+        /**
+         * Encodes the specified HomeContentRequest message. Does not implicitly {@link homecontent.HomeContentRequest.verify|verify} messages.
+         * @param message HomeContentRequest message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: homecontent.IHomeContentRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a HomeContentRequest message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns HomeContentRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): homecontent.HomeContentRequest;
+
+        /**
+         * Gets the default type url for HomeContentRequest
+         * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+         * @returns The default type url
+         */
+        public static getTypeUrl(typeUrlPrefix?: string): string;
+    }
+
+    /** Properties of a HomeContentResponse. */
+    interface IHomeContentResponse {
+
+        /** HomeContentResponse contentRows */
+        contentRows?: (homecontent.IContentRow[]|null);
+    }
+
+    /** Represents a HomeContentResponse. */
+    class HomeContentResponse implements IHomeContentResponse {
+
+        /**
+         * Constructs a new HomeContentResponse.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: homecontent.IHomeContentResponse);
+
+        /** HomeContentResponse contentRows. */
+        public contentRows: homecontent.IContentRow[];
+
+        /**
+         * Creates a new HomeContentResponse instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns HomeContentResponse instance
+         */
+        public static create(properties?: homecontent.IHomeContentResponse): homecontent.HomeContentResponse;
+
+        /**
+         * Encodes the specified HomeContentResponse message. Does not implicitly {@link homecontent.HomeContentResponse.verify|verify} messages.
+         * @param message HomeContentResponse message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: homecontent.IHomeContentResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a HomeContentResponse message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns HomeContentResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): homecontent.HomeContentResponse;
+
+        /**
+         * Gets the default type url for HomeContentResponse
+         * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+         * @returns The default type url
+         */
+        public static getTypeUrl(typeUrlPrefix?: string): string;
+    }
+
+    /** Properties of a ContentRow. */
+    interface IContentRow {
+
+        /** ContentRow rowHeader */
+        rowHeader?: (string|null);
+
+        /** ContentRow contentType */
+        contentType?: (homecontent.ContentType|null);
+
+        /** ContentRow contents */
+        contents?: (homecontent.IContent[]|null);
+    }
+
+    /** Represents a ContentRow. */
+    class ContentRow implements IContentRow {
+
+        /**
+         * Constructs a new ContentRow.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: homecontent.IContentRow);
+
+        /** ContentRow rowHeader. */
+        public rowHeader: string;
+
+        /** ContentRow contentType. */
+        public contentType: homecontent.ContentType;
+
+        /** ContentRow contents. */
+        public contents: homecontent.IContent[];
+
+        /**
+         * Creates a new ContentRow instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns ContentRow instance
+         */
+        public static create(properties?: homecontent.IContentRow): homecontent.ContentRow;
+
+        /**
+         * Encodes the specified ContentRow message. Does not implicitly {@link homecontent.ContentRow.verify|verify} messages.
+         * @param message ContentRow message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: homecontent.IContentRow, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a ContentRow message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns ContentRow
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): homecontent.ContentRow;
+
+        /**
+         * Gets the default type url for ContentRow
+         * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+         * @returns The default type url
+         */
+        public static getTypeUrl(typeUrlPrefix?: string): string;
+    }
+
+    /** ContentType enum. */
+    enum ContentType {
+        CONTENT_TYPE_VIDEO = 1,
+        CONTENT_TYPE_ARTICLE = 2
+    }
+
+    /** Properties of a Content. */
+    interface IContent {
+
+        /** Content title */
+        title?: (string|null);
+
+        /** Content thumbnail */
+        thumbnail?: (string|null);
+    }
+
+    /** Represents a Content. */
+    class Content implements IContent {
+
+        /**
+         * Constructs a new Content.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: homecontent.IContent);
+
+        /** Content title. */
+        public title: string;
+
+        /** Content thumbnail. */
+        public thumbnail: string;
+
+        /**
+         * Creates a new Content instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns Content instance
+         */
+        public static create(properties?: homecontent.IContent): homecontent.Content;
+
+        /**
+         * Encodes the specified Content message. Does not implicitly {@link homecontent.Content.verify|verify} messages.
+         * @param message Content message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: homecontent.IContent, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a Content message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns Content
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): homecontent.Content;
+
+        /**
+         * Gets the default type url for Content
+         * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+         * @returns The default type url
+         */
+        public static getTypeUrl(typeUrlPrefix?: string): string;
+    }
+}
+
 /** Namespace image. */
 export namespace image {
 
