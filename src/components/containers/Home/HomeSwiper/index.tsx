@@ -1,24 +1,15 @@
 'use client'
 
 import styles from './styles.module.scss'
-
-import { register } from 'swiper/element/bundle'
 import 'swiper/css'
 import 'swiper/css/navigation'
 import 'swiper/css/pagination'
-import { Swiper, SwiperSlide } from 'swiper/react'
-import { Pagination, Navigation } from 'swiper/modules'
+import 'swiper/css/scrollbar'
 
-import NextImage from 'next/image'
+import { register } from 'swiper/element/bundle'
 import { useRef } from 'react'
-
-const sizes = [
-  '(max-width: 600px) 150px',
-  '(max-width: 900px) 300px',
-  '(max-width: 1200px) 450px',
-  '(max-width: 1536px) 600px',
-  '750px',
-].join(',')
+import Swiper from 'swiper'
+import NextImage from 'next/image'
 
 type Props = {
   images: {
@@ -27,37 +18,43 @@ type Props = {
   }[]
 }
 
+register()
+
+type SwiperRef = HTMLElement & { swiper: Swiper; initialize: () => void }
+
 export default function HomeSwiper({ images }: Props) {
-  const pagination = useRef<HTMLDivElement>(null)
-  const prev = useRef<HTMLDivElement>(null)
-  const next = useRef<HTMLDivElement>(null)
+  const swiperRef = useRef<SwiperRef>(null)
+  const prevRef = useRef<HTMLDivElement>(null)
+  const nextRef = useRef<HTMLDivElement>(null)
+  const scrollbarRef = useRef<HTMLDivElement>(null)
 
   return (
     <div className={styles.swiperContainer}>
-      <Swiper
-        modules={[Pagination, Navigation]}
-        slidesPerView={3}
-        slidesPerGroup={3}
-        spaceBetween={20}
-        pagination={{
-          clickable: true,
-          el: pagination.current,
-        }}
+      <swiper-container
+        ref={swiperRef}
+        slides-per-view="3"
+        slides-per-group="3"
+        space-between="20"
         navigation={{
-          nextEl: '.swiper-button-next',
-          prevEl: '.swiper-button-prev',
+          nextEl: prevRef.current,
+          prevEl: nextRef.current,
         }}
-        effect="flip"
+        // see https://swiperjs.com/swiper-api#scrollbar
+        // いい感じに style
+        scrollbar={{
+          el: scrollbarRef.current,
+          draggable: true,
+        }}
       >
         {images.map((item) => (
-          <SwiperSlide className={styles.swiperSlide} key={item.src}>
-            <NextImage src={item.src} alt={item.alt} fill sizes={sizes} />
-          </SwiperSlide>
+          <swiper-slide key={item.src}>
+            <NextImage src={item.src} alt={item.alt} width={450} height={236} />
+          </swiper-slide>
         ))}
-      </Swiper>
-      <div className={styles.pagination} ref={pagination} />
-      <div className="swiper-button-prev" ref={prev} />
-      <div className="swiper-button-next" ref={next} />
+        <div ref={prevRef} />
+        <div ref={nextRef} />
+        <div ref={scrollbarRef} />
+      </swiper-container>
     </div>
   )
 }
