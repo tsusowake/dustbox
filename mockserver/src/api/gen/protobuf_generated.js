@@ -7,6 +7,142 @@ const $Reader = $protobuf.Reader, $Writer = $protobuf.Writer, $util = $protobuf.
 // Exported root namespace
 const $root = $protobuf.roots["default"] || ($protobuf.roots["default"] = {});
 
+export const apierror = $root.apierror = (() => {
+
+    /**
+     * Namespace apierror.
+     * @exports apierror
+     * @namespace
+     */
+    const apierror = {};
+
+    apierror.APIError = (function() {
+
+        /**
+         * Properties of a APIError.
+         * @memberof apierror
+         * @interface IAPIError
+         * @property {string|null} [code] APIError code
+         * @property {string|null} [message] APIError message
+         */
+
+        /**
+         * Constructs a new APIError.
+         * @memberof apierror
+         * @classdesc Represents a APIError.
+         * @implements IAPIError
+         * @constructor
+         * @param {apierror.IAPIError=} [properties] Properties to set
+         */
+        function APIError(properties) {
+            if (properties)
+                for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+
+        /**
+         * APIError code.
+         * @member {string} code
+         * @memberof apierror.APIError
+         * @instance
+         */
+        APIError.prototype.code = "";
+
+        /**
+         * APIError message.
+         * @member {string} message
+         * @memberof apierror.APIError
+         * @instance
+         */
+        APIError.prototype.message = "";
+
+        /**
+         * Creates a new APIError instance using the specified properties.
+         * @function create
+         * @memberof apierror.APIError
+         * @static
+         * @param {apierror.IAPIError=} [properties] Properties to set
+         * @returns {apierror.APIError} APIError instance
+         */
+        APIError.create = function create(properties) {
+            return new APIError(properties);
+        };
+
+        /**
+         * Encodes the specified APIError message. Does not implicitly {@link apierror.APIError.verify|verify} messages.
+         * @function encode
+         * @memberof apierror.APIError
+         * @static
+         * @param {apierror.IAPIError} message APIError message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        APIError.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            if (message.code != null && Object.hasOwnProperty.call(message, "code"))
+                writer.uint32(/* id 1, wireType 2 =*/10).string(message.code);
+            if (message.message != null && Object.hasOwnProperty.call(message, "message"))
+                writer.uint32(/* id 2, wireType 2 =*/18).string(message.message);
+            return writer;
+        };
+
+        /**
+         * Decodes a APIError message from the specified reader or buffer.
+         * @function decode
+         * @memberof apierror.APIError
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {apierror.APIError} APIError
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        APIError.decode = function decode(reader, length) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            let end = length === undefined ? reader.len : reader.pos + length, message = new $root.apierror.APIError();
+            while (reader.pos < end) {
+                let tag = reader.uint32();
+                switch (tag >>> 3) {
+                case 1: {
+                        message.code = reader.string();
+                        break;
+                    }
+                case 2: {
+                        message.message = reader.string();
+                        break;
+                    }
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+
+        /**
+         * Gets the default type url for APIError
+         * @function getTypeUrl
+         * @memberof apierror.APIError
+         * @static
+         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+         * @returns {string} The default type url
+         */
+        APIError.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+            if (typeUrlPrefix === undefined) {
+                typeUrlPrefix = "type.googleapis.com";
+            }
+            return typeUrlPrefix + "/apierror.APIError";
+        };
+
+        return APIError;
+    })();
+
+    return apierror;
+})();
+
 export const helloworld = $root.helloworld = (() => {
 
     /**

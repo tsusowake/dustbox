@@ -3,6 +3,8 @@ import { APISetUpper } from '.'
 import { randomWait } from '../util/random_wait'
 import { homecontent } from './gen/protobuf_generated'
 import { sendResponse } from '../util/send_response'
+import randomErrorOrNull from '../util/random_error'
+import { apierror } from './gen/protobuf_generated'
 
 export const setupHomeAPI = (r: Router): void => {
   r.get('/home', (req, res) => {
@@ -10,8 +12,17 @@ export const setupHomeAPI = (r: Router): void => {
   })
   r.get('/home/contents', async (req, res) => {
     await randomWait(2)
-
-    sendResponse(res, homecontent.HomeContentResponse.encode(homeContents).finish())
+    const err = randomErrorOrNull()
+    if (err) {
+      if (err.code === 'INTERNAL_SERVER_ERROR') {
+        res.status(500).send('Internal server error')
+        return
+      }
+      const created = apierror.APIError.create(err)
+      sendResponse(res.status(400), apierror.APIError.encode(created).finish())
+    } else {
+      sendResponse(res.status(200), homecontent.HomeContentResponse.encode(homeContents).finish())
+    }
   })
 }
 
