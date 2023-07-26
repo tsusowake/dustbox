@@ -1,5 +1,67 @@
 import * as $protobuf from "protobufjs";
 import Long = require("long");
+/** Namespace apierror. */
+export namespace apierror {
+
+    /** Properties of a APIError. */
+    interface IAPIError {
+
+        /** APIError code */
+        code?: (string|null);
+
+        /** APIError message */
+        message?: (string|null);
+    }
+
+    /** Represents a APIError. */
+    class APIError implements IAPIError {
+
+        /**
+         * Constructs a new APIError.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: apierror.IAPIError);
+
+        /** APIError code. */
+        public code: string;
+
+        /** APIError message. */
+        public message: string;
+
+        /**
+         * Creates a new APIError instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns APIError instance
+         */
+        public static create(properties?: apierror.IAPIError): apierror.APIError;
+
+        /**
+         * Encodes the specified APIError message. Does not implicitly {@link apierror.APIError.verify|verify} messages.
+         * @param message APIError message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: apierror.IAPIError, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a APIError message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns APIError
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): apierror.APIError;
+
+        /**
+         * Gets the default type url for APIError
+         * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+         * @returns The default type url
+         */
+        public static getTypeUrl(typeUrlPrefix?: string): string;
+    }
+}
+
 /** Namespace helloworld. */
 export namespace helloworld {
 
