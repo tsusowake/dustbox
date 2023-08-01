@@ -34,3 +34,8 @@ MOCK_GEN_DIR=mockserver/src/api/gen
 mockprotogen: protogen
 	rm -rf $(MOCK_GEN_DIR)
 	cp -r ./src/api/gen $(MOCK_GEN_DIR)
+
+.PHONY: runmockup
+runmockup:
+	npm run dev &
+	cd mockserver && npm run mock:server
