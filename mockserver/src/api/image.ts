@@ -2,7 +2,7 @@ import { Router } from 'express'
 import { APISetUpper } from '.'
 import data from '../mock/image.json'
 import { randomWait } from '../util/random_wait'
-import { image } from './gen/protobuf_generated'
+import { image } from 'api/gen/protobuf_generated'
 
 const setupImageAPI = (r: Router): void => {
   r.get('/images', async (req, res) => {

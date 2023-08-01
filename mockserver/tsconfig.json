@@ -15,10 +15,11 @@
     "resolveJsonModule": true,
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["./src/*"],
+      "api/*": ["../src/api/*"]
     }
   },
-  "include": ["src/**/*"],
+  "include": ["src/**/*", "../src/api/gen/*"],
   "exclude": ["node_modules"],
   "ts-node": {
     "files": true

@@ -1,10 +1,9 @@
 import { Router } from 'express'
 import { APISetUpper } from '.'
-import { randomWait } from '../util/random_wait'
-import { homecontent } from './gen/protobuf_generated'
-import { sendResponse } from '../util/send_response'
-import randomErrorOrNull from '../util/random_error'
-import { apierror } from './gen/protobuf_generated'
+import { randomWait } from '@/util/random_wait'
+import { homecontent, apierror } from 'api/gen/protobuf_generated'
+import { sendResponse } from '@/util/send_response'
+import randomErrorOrNull from '@/util/random_error'
 
 export const setupHomeAPI = (r: Router): void => {
   r.get('/home', (req, res) => {

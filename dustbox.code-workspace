@@ -1,0 +1,12 @@
+{
+  "folders": [
+    {
+      "name": "dustbox",
+      "path": "."
+    },
+    {
+      "name": "mockserver",
+      "path": "mockserver"
+    }
+  ]
+}
