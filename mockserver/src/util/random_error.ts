@@ -1,4 +1,4 @@
-import { apierror } from '../api/gen/protobuf_generated'
+import { apierror } from 'api/gen/protobuf_generated'
 
 export default function randomErrorOrNull(): apierror.APIError | null {
   const random = Math.random()
