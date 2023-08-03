@@ -1,0 +1,32 @@
+steps:
+  - name: 'node:18.15.0'
+    entrypoint: 'npm'
+    args: [ 'install' ]
+
+  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+    args:
+      - gcloud
+      - compute
+      - scp
+      - --recurse
+      - src/
+      - public/
+      - types/
+      - Makefile
+      - next.config.js
+      - package-lock.json
+      - package.json
+      - ${_ENV_INSTANCE}:/var/web/src
+      - --zone
+      - ${_ENV_ZONE}
+
+  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+    args:
+      - gcloud
+      - compute
+      - ssh
+      - ${_ENV_INSTANCE}
+      - --zone
+      - ${_ENV_ZONE}
+      - --command
+      - 'cd /var/web/src; npm run dev &;'
